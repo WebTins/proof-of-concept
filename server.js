@@ -20,25 +20,26 @@ const pokeApi = 'https://pokeapi.co/api/v2/'
 // MARK: Home page
 app.get ('/', async function (request, response) {
 
-    const pokeResponse = await fetch (`${pokeApi}/pokemon?limit=12`)
-    const pokeResponseJSON = await pokeResponse.json()
+  const pokeResponse = await fetch (`${pokeApi}/pokemon?limit=12`)
+  const pokeResponseJSON = await pokeResponse.json()
 
-    const pokemonDetails = await Promise.all(
-        pokeResponseJSON.results.map(async (pokemon) => {
-          const detailResponse = await fetch(pokemon.url)
-          const detailJSON = await detailResponse.json()
+  const pokemonDetails = await Promise.all(
+      pokeResponseJSON.results.map(async (pokemon) => {
+        const detailResponse = await fetch(pokemon.url)
+        const detailJSON = await detailResponse.json()
 
-          console.log(detailJSON);
-        
-          return {
-              name: detailJSON.name,
-              id: detailJSON.id,
-              image: detailJSON.sprites.other['official-artwork'].front_default,
-              // map uitzoeken wat het is en wat het kan
-              types: detailJSON.types.map(type => type.type.name),
-        }
-      })
-    )
+        console.log(detailJSON);
+      
+        return {
+            name: detailJSON.name,
+            id: detailJSON.id,
+            image: detailJSON.sprites.other['official-artwork'].front_default,
+            // map uitzoeken wat het is en wat het kan
+            types: detailJSON.types.map(type => type.type.name),
+      }
+    })
+  )
+
 // maak index.liquid om naar html en geef hier onderstaande data aan mee
     response.render('index', {
 // de data die in de template mag, in me liquid kan ik dan {{} pokemon }} gebruiken
