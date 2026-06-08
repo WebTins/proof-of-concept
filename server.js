@@ -20,7 +20,7 @@ const pokeApi = 'https://pokeapi.co/api/v2/'
 // MARK: Home page
 app.get ('/', async function (request, response) {
 
-    const pokeResponse = await fetch (`${pokeApi}/pokemon?limit=9`)
+    const pokeResponse = await fetch (`${pokeApi}/pokemon?limit=12`)
     const pokeResponseJSON = await pokeResponse.json()
 
     const pokemonDetails = await Promise.all(
@@ -34,7 +34,8 @@ app.get ('/', async function (request, response) {
               name: detailJSON.name,
               id: detailJSON.id,
               image: detailJSON.sprites.other['official-artwork'].front_default,
-              types: detailJSON.types.map(t => t.type.name),
+              // map uitzoeken wat het is en wat het kan
+              types: detailJSON.types.map(type => type.type.name),
         }
       })
     )
