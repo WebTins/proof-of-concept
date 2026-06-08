@@ -1,26 +1,4 @@
 :root {
-  --type-grass:    #c6e8b3;
-  --type-fire:     #ffd5c2;
-  --type-water:    #c2d9ff;
-  --type-electric: #fff3b0;
-  --type-psychic:  #ffcce5;
-  --type-normal:   #e8e8e8;
-  --type-fighting: #ffc9a8;
-  --type-poison:   #e8c8ff;
-  --type-ghost:    #c8c0e8;
-  --type-dragon:   #c3b8ff;
-  --type-bug:      #86d22e;
-  --type-ground:   #f7de3f;
-  --type-fairy:    #fb95ea;
-  --type-rock:     #d1ab00;
-  --type-ice:      #00d5ff;
-  --type-dark:     #2d013a;
-
-  --purple:             #6c5ce7;
-  --background:         #f5f5f5;
-  --dark-accent:        #1a1a2e;
-  --placeholder-accent: #6b7280;
-  --light-accent:       #ffffff;
 }
 
 /* Type kleuren  */
