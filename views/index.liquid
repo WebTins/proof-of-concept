@@ -1,24 +1,28 @@
 {% render 'partials/head.liquid' %}
 
 <main>
-    <section class="">
-        <img src="assets/logo.png" width="200">
+    <section class="nav-bar">
+        <a href="/">
+            <img src="assets/logo.png" width="250" alt="Pokemon">
+        </a>
         <h1>All Pokémon</h1>
-        <div>
+        <div class="nav">
             <input type="text" placeholder="Search">
             <a href="/">All Pokémon</a>
-            <a href="/favorites">Favorites</a>
+            <a class="favorite-link" href="/favorites">Favorites</a>
         </div>
     </section>
 
-    <section>
+    <div class="pokemon-card">
         {% for pokemon in pokemon %}
-            <article data-type="{{ pokemon.type }}">
-                <h2>{{ pokemon.name | capitalize}}</h2>
-                <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" width="200">
-                {% comment %} <p>#{{ pokemon.id }}</p> {% endcomment %}
-            </article>
+            <a href="/pokemon/{{ pokemon.id }}">
+                <article data-type="{{ pokemon.type }}" class="card type-{{ pokemon.types[0] }}">
+                    <h2>{{ pokemon.name | capitalize}}</h2>
+                        <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" width="100">
+                    {% comment %} <p>#{{ pokemon.id }}</p> {% endcomment %}
+                </article>
+            </a>
         {% endfor %}
-    </section>
+    </div>
 </main>
 {% render 'partials/foot.liquid' %}
