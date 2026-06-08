@@ -1,0 +1,37 @@
+:root {
+  --type-grass:    #c6e8b3;
+  --type-fire:     #ffd5c2;
+  --type-water:    #c2d9ff;
+  --type-electric: #fff3b0;
+  --type-psychic:  #ffcce5;
+  --type-normal:   #e8e8e8;
+  --type-fighting: #ffc9a8;
+  --type-poison:   #e8c8ff;
+  --type-ghost:    #c8c0e8;
+  --type-dragon:   #c3b8ff;
+
+  --purple:             #6c5ce7;
+  --background:         #f5f5f5;
+  --dark-accent:        #1a1a2e;
+  --placeholder-accent: #6b7280;
+  --light-accent:       #ffffff;
+}
+
+/* Type kleuren  */
+.type-grass    { background: var(--type-grass); }
+.type-fire     { background: var(--type-fire); }
+.type-water    { background: var(--type-water); }
+.type-electric { background: var(--type-electric); }
+.type-psychic  { background: var(--type-psychic); }
+.type-normal   { background: var(--type-normal); }
+.type-fighting { background: var(--type-fighting); }
+.type-poison   { background: var(--type-poison); }
+.type-ghost    { background: var(--type-ghost); }
+.type-dragon   { background: var(--type-dragon); }
+
+
+@font-face {
+    font-family: Inter;
+    src: url(/assets/Inter.ttf)
+}
+
