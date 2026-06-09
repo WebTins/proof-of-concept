@@ -58,6 +58,11 @@ body {
         font-family: Inter;
         align-items: center;
 
+        @media (min-width: 888px) {
+            flex-direction: row;
+            align-items: flex-start;
+        }
+
         /* MARK: Navigatie */
         .nav-bar {
             display: flex;
@@ -69,6 +74,13 @@ body {
             h1 {
                 font-size: 1.5em;
                 padding: 1rem;
+            }
+
+            @media (min-width: 888px) {
+                position: sticky;
+                height: 100%;
+                width: 300px;
+                flex-shrink: 0;
             }
         }
 
@@ -101,7 +113,7 @@ body {
             }
         }
 
-        /* MARK: Pokemon card */
+        /* MARK: Lijst pokemon */
         .pokemon-card {
             display: flex;
             flex-direction: row;
@@ -112,11 +124,24 @@ body {
             padding: 1rem;
             background-color: #EFEFFF;
 
+            @media (min-width: 888px) {
+                display: grid;
+                height: 100%;
+                grid-template-columns: repeat(3, 1fr);
+            }
+
             a {
                 text-decoration: none;
                 color: var(--dark-accent);
+
+                @media (min-width: 888px) {
+                    display: flex;
+                    width: 100%;
+                    justify-self: center;
+                }
             }
             
+            /* MARK: Pokemon cards */
             .card {
                 display: flex;
                 position: relative;
@@ -129,15 +154,33 @@ body {
                 border: solid 2px var(--dark-accent);
                 width: 160px;
 
+                @media (min-width: 888px) {
+                    width: 100%;
+                    height: clamp(160px, 20vw, 300px);
+                }
+
                 h2 {
                     font-size: 1em;
                     padding: 1rem;
                     margin: 0;
+
+                    @media (min-width: 888px) {
+                        font-size: clamp(1em, 1.5vw, 1.5em);
+                    }
                 }
 
                 img {
-                    display: flex;
+                    display: block;
                     align-self: flex-end;
+                    width: 80%;
+                    height: auto;
+                    max-width: 200px;
+
+                    @media (min-width: 888px) {
+                        width: clamp(100px, 50%, 200px);
+                        margin-left: auto;
+                        margin-top: auto;
+                    }
                 }
             }
         }
