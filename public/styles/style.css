@@ -153,6 +153,11 @@ body {
                 border-radius: 20px;
                 border: solid 2px var(--dark-accent);
                 width: 160px;
+                transition: .3s ease-in-out;
+
+                &:hover {
+                    scale: 1.03;
+                }
 
                 @media (min-width: 888px) {
                     width: 100%;
