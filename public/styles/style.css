@@ -51,6 +51,16 @@
     src: url(/assets/Inter.ttf)
 }
 
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}
+
 body {
     main {
         display: flex;
@@ -154,6 +164,9 @@ body {
                 border: solid 2px var(--dark-accent);
                 width: 160px;
                 transition: .3s ease-in-out;
+                animation: fade-in linear;
+                animation-timeline: view();
+                animation-range: 0% 15%;
 
                 &:hover {
                     scale: 1.03;
