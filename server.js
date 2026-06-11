@@ -20,7 +20,7 @@ const pokeApi = 'https://pokeapi.co/api/v2/'
 // MARK: Home page
 app.get ('/', async function (request, response) {
 
-  const pokeResponse = await fetch (`${pokeApi}/pokemon?limit=12`)
+  const pokeResponse = await fetch (`${pokeApi}/pokemon?limit=20`)
   const pokeResponseJSON = await pokeResponse.json()
 
   const pokemonDetails = await Promise.all(
@@ -42,6 +42,7 @@ app.get ('/', async function (request, response) {
 
 // maak index.liquid om naar html en geef hier onderstaande data aan mee
     response.render('index', {
+      page: "home",
 // de data die in de template mag, in me liquid kan ik dan {{} pokemon }} gebruiken
     pokemon: pokemonDetails
     })
