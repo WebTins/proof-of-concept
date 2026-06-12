@@ -13,9 +13,10 @@
         </div>  
     </section>
 
+<div class="wrapper">
     <div class="pokemon-card">
         {% for pokemon in pokemon %}
-            <a href="/pokemon/{{ pokemon.id }}">
+            <a href="/pokemon/{{ pokemon.id }}" data-name="{{ pokemon.name }}">
                 <article data-type="{{ pokemon.type }}" class="card type-{{ pokemon.types[0] }}">
                     <h2>{{ pokemon.name | capitalize}}</h2>
                         <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" width="100">
@@ -24,5 +25,6 @@
             </a>
         {% endfor %}
     </div>
+</div>
 </main>
 {% render 'partials/foot.liquid' %}

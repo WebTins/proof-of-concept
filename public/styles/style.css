@@ -150,20 +150,28 @@ body {
             }
         }
 
+        .wrapper {
+            background-color: #EFEFFF;
+            width: 100%;
+            height: max-content;
+
+            @media (min-width: 544px) {
+                min-height: 100vh;
+            }
+        }
+
         /* MARK: Lijst pokemon */
         .pokemon-card {
             display: flex;
             flex-direction: row;
             justify-content: center;
             flex-wrap: wrap;
-            width: 100%;
+            height: max-content;
             gap: 1rem;
             padding: 1rem;
-            background-color: #EFEFFF;
 
             @media (min-width: 888px) {
                 display: grid;
-                height: 100%;
                 grid-template-columns: repeat(3, 1fr);
             }
 
