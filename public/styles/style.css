@@ -133,6 +133,10 @@ body {
                 transition: 0.3s ease-in-out;
                 gap: 0.25rem;
 
+                @media (prefers-reduced-motion: no-preference) {
+                    transition: 0.3s ease-in-out;
+                }
+                
                 &:hover {
                     background-color: #5631E8;
                     color: var(--light-accent);
@@ -187,6 +191,11 @@ body {
                     width: 100%;
                     justify-self: center;
                 }
+
+                &:focus {
+                    outline: solid 5px #5631E8;
+                    border-radius: 20px;
+                }
             }
             
             /* MARK: Pokemon cards */
@@ -202,9 +211,12 @@ body {
                 border: solid 2px var(--dark-accent);
                 width: 160px;
                 transition: .3s ease-in-out;
-                animation: fade-in linear;
-                animation-timeline: view();
-                animation-range: 0% 15%;
+                
+                @supports (animation-timeline: view()) {
+                    animation: fade-in .3s ease-in-out;
+                    animation-timeline: view();
+                    animation-range: 0% 15%;
+                }
 
                 &:hover {
                     scale: 1.03;
