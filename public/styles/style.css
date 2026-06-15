@@ -3,6 +3,7 @@
     box-sizing: border-box;
 }
 
+/* MARK: Stylesheet */
 :root {
     --type-grass:    #c6e8b3;
     --type-fire:     #ffd5c2;
@@ -62,7 +63,7 @@
 }
 
 body {
-    main {
+    .home {
         display: flex;
         flex-direction: column;
         font-family: Inter;
@@ -100,6 +101,8 @@ body {
             gap: 1rem;
             
             .active {
+                display: flex;
+                flex-direction: row;
                 background-color: #5631E8;
                 color: var(--light-accent);
             }
