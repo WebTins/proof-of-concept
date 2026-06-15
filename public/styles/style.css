@@ -93,6 +93,12 @@ body {
                 width: 300px;
                 flex-shrink: 0;
             }
+
+            a {
+                &:focus {
+                    outline: solid 5px #ffcb00;
+                }
+            }
         }
 
         .nav {
@@ -140,6 +146,10 @@ body {
                     background-color: var(--head-accent);
                     color: var(--light-accent);
                     fill: var(--light-accent);
+                }
+
+                &:focus {
+                    outline: solid 5px #ffcb00;
                 }
 
                 svg {
@@ -193,7 +203,7 @@ body {
                 }
 
                 &:focus {
-                    outline: solid 5px #5631E8;
+                    outline: solid 5px var(--head-accent);
                     border-radius: 20px;
                 }
             }
