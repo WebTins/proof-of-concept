@@ -102,6 +102,10 @@ app.get('/pokemon/:id', async function (request, response) {
     })
 })
 
+app.use((request, response) => {
+    response.status(404).render('error')
+})
+
 // MARK: port 8000
 app.set('port', process.env.PORT || 8000)
 
