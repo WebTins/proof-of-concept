@@ -395,17 +395,11 @@ body {
                     display: none;
                 }
 
-                section {
+                div {
                     flex: 1 0 100%;
                     scroll-snap-align: center;
                 }
             }
-
-
-        }
-
-        .active-tab {
-            color: var(--head-accent);
         }
 
         /* MARK: ABOUT TABEL */
@@ -533,6 +527,7 @@ body {
                     }
 
                     p {
+                        font-size: 1em;
                         font-weight: 700;
                     }
                 }

@@ -13,15 +13,18 @@
             <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" style="view-transition-class:vt-img; view-transition-name:{{ pokemon.name }};" width="200" class="pokemon-image">
         </section>
 
-        <section class="pokemon-tabs">
+        <!--MARK: TABS-->
+        <div class="pokemon-tabs">
             <nav>
                 <a href="#about">About</a>
                 <a href="#stats">Stats</a>
                 <a href="#evolutions">Evolutions</a>
             </nav>
 
+            <!--MARK: CAROUSEL-->
             <div class="tab-carousel">
-                <section id="about">
+                <!--MARK: ABOUT-->
+                <div id="about">
                     <table>
                         <tr><th>Name</th><td>{{ pokemon.name | capitalize }}</td></tr>
                         <tr><th>ID</th><td>#{{ pokemon.id | prepend: "000" | slice: -4, 4 }}</td></tr>
@@ -45,9 +48,10 @@
                             </td>
                         </tr>
                     </table>
-                </section>
+                </div>
 
-                <section id="stats">
+                <!--MARK: STATS-->
+                <div id="stats">
                     {% for stat in pokemon.stats %}
                         <div class="stat-row">
                             <span class="stat-name">{{ stat.name | capitalize }}</span>
@@ -55,9 +59,10 @@
                             <meter min="0" max="255" value="{{ stat.value }}"></meter>
                         </div>
                     {% endfor %}
-                </section>
+                </div>
 
-                <section id="evolutions">
+                <!--MARK: EVOLUTIONS-->
+                <div id="evolutions">
                     {% for evo in pokemon.evolutions %}
                         <a href="/pokemon/{{ evo.id }}" class="evolution-card">
                             <img src="{{ evo.image }}" alt="{{ evo.name }}" width="60" style="view-transiition-name: {{ evo.name }}">
@@ -67,9 +72,9 @@
                             </div>
                         </a>
                     {% endfor %}
-                </section>
+                </div>
             </div>
-        </section>
+        </div>
     </div>
 </main>
 
