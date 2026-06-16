@@ -1,16 +1,16 @@
 {% render 'partials/head.liquid' %}
 
 <main class="main-detail type-{{ pokemon.types[0] }}">
-    <a href="/" class="back-link">← Terug</a>
+    <a href="/" class="back-link">← Back</a>
 
     <div class="pokemon-detail">
         <section class="pokemon-info">
             <a href="/">
-            <img src="/assets/logo.png" width="200" alt="Pokemon">
+            <img src="/assets/logo.png" width="200" alt="Pokemon" style="view-transition-name: logo;">
             </a>
             <p class="pokemon-id">#{{ pokemon.id | prepend: "000" | slice: -4, 4 }}</p>
-            <h1>{{ pokemon.name | capitalize }}</h1>
-            <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" style="view-transition-class:vt-img; view-transition-name:{{ pokemon.name }};" width="200" class="pokemon-image">
+            <h1 style="view-transition-name: title-{{ pokemon.name }};">{{ pokemon.name | capitalize }}</h1>
+            <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" style="view-transition-name:{{ pokemon.name }};" width="200" class="pokemon-image">
         </section>
 
         <!--MARK: TABS-->
@@ -65,7 +65,17 @@
                 <div id="evolutions">
                     {% for evo in pokemon.evolutions %}
                         <a href="/pokemon/{{ evo.id }}" class="evolution-card">
-                            <img src="{{ evo.image }}" alt="{{ evo.name }}" width="60" style="view-transiition-name: {{ evo.name }}">
+                        {% comment %} 
+                            De if en else statement zijn voor de view transition. Als dezelfde huidige pokemon geselecteerd wordt
+                            dan komt er geen view transition. En daarom krijgt de huidige image ook geen view transition mee.
+                            Als de evolutie pokemon wordt geselecteerd die niet hetzelfde is, dan komt er wel een view transition
+                            dat wordt dus meegegeven in de else statement.
+                        {% endcomment %}
+                            {% if evo.name == pokemon.name %}
+                            <img src="{{ evo.image }}" alt="{{ evo.name }}" width="60">
+                            {% else %}
+                            <img src="{{ evo.image }}" alt="{{ evo.name }}" width="60" style="view-transition-name: {{ evo.name }};">
+                            {% endif %}
                             <div class="evolution-info">
                                 <span class="evo-id">#{{ evo.id | prepend: "000" | slice: -4, 4 }}</span>
                                 <p>{{ evo.name | capitalize }}</p>
