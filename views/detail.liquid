@@ -1,0 +1,76 @@
+{% render 'partials/head.liquid' %}
+
+<main class="main-detail type-{{ pokemon.types[0] }}">
+    <a href="/" class="back-link">← Terug</a>
+
+    <div class="pokemon-detail">
+        <section class="pokemon-info">
+            <a href="/">
+            <img src="/assets/logo.png" width="200" alt="Pokemon">
+            </a>
+            <p class="pokemon-id">#{{ pokemon.id | prepend: "000" | slice: -4, 4 }}</p>
+            <h1>{{ pokemon.name | capitalize }}</h1>
+            <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" style="view-transition-class:vt-img; view-transition-name:{{ pokemon.name }};" width="200" class="pokemon-image">
+        </section>
+
+        <section class="pokemon-tabs">
+            <nav>
+                <a href="#about">About</a>
+                <a href="#stats">Stats</a>
+                <a href="#evolutions">Evolutions</a>
+            </nav>
+
+            <div class="tab-carousel">
+                <section id="about">
+                    <table>
+                        <tr><th>Name</th><td>{{ pokemon.name | capitalize }}</td></tr>
+                        <tr><th>ID</th><td>#{{ pokemon.id | prepend: "000" | slice: -4, 4 }}</td></tr>
+                        <tr><th>Base XP</th><td>{{ pokemon.baseXP }}</td></tr>
+                        <tr><th>Weight</th><td>{{ pokemon.weight | divided_by: 10.0 }} kg</td></tr>
+                        <tr><th>Height</th><td>{{ pokemon.height | divided_by: 10.0 }} m</td></tr>
+                        <tr>
+                            <th>Type</th>
+                            <td>
+                                {% for type in pokemon.types %}
+                                    <span class="type-badge type-{{ type }}">{{ type | capitalize }}</span>
+                                {% endfor %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Abilities</th>
+                            <td>
+                                {% for ability in pokemon.abilities %}
+                                    {{ ability | capitalize }}{% unless forloop.last %}, {% endunless %}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </table>
+                </section>
+
+                <section id="stats">
+                    {% for stat in pokemon.stats %}
+                        <div class="stat-row">
+                            <span class="stat-name">{{ stat.name | capitalize }}</span>
+                            <span class="stat-value">{{ stat.value }}</span>
+                            <meter min="0" max="255" value="{{ stat.value }}"></meter>
+                        </div>
+                    {% endfor %}
+                </section>
+
+                <section id="evolutions">
+                    {% for evo in pokemon.evolutions %}
+                        <a href="/pokemon/{{ evo.id }}" class="evolution-card">
+                            <img src="{{ evo.image }}" alt="{{ evo.name }}" width="60" style="view-transiition-name: {{ evo.name }}">
+                            <div class="evolution-info">
+                                <span class="evo-id">#{{ evo.id | prepend: "000" | slice: -4, 4 }}</span>
+                                <p>{{ evo.name | capitalize }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </section>
+            </div>
+        </section>
+    </div>
+</main>
+
+{% render 'partials/foot.liquid' %}
