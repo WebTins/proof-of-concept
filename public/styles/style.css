@@ -56,10 +56,19 @@
     from {
         opacity: 0;
     }
-    
+
     to {
         opacity: 1;
     }
+}
+
+/* MARK: Active tab highlight */
+html:not(:has(:target)) nav a[href="#about"],
+html:has(#about:target) nav a[href="#about"],
+html:has(#stats:target) nav a[href="#stats"],
+html:has(#evolutions:target) nav a[href="#evolutions"] {
+    color: var(--head-accent);
+    border-radius: 10px;
 }
 
 body {
@@ -105,7 +114,7 @@ body {
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            
+
             .active {
                 display: flex;
                 flex-direction: row;
@@ -141,7 +150,7 @@ body {
                 @media (prefers-reduced-motion: no-preference) {
                     transition: 0.3s ease-in-out;
                 }
-                
+
                 &:hover {
                     background-color: var(--head-accent);
                     color: var(--light-accent);
@@ -207,7 +216,7 @@ body {
                     border-radius: 20px;
                 }
             }
-            
+
             /* MARK: Pokemon cards */
             .card {
                 display: flex;
@@ -221,7 +230,7 @@ body {
                 border: solid 2px var(--dark-accent);
                 width: 160px;
                 transition: .3s ease-in-out;
-                
+
                 @supports (animation-timeline: view()) {
                     animation: fade-in .3s ease-in-out;
                     animation-timeline: view();
