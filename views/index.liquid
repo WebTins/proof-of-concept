@@ -19,7 +19,7 @@
             <a href="/pokemon/{{ pokemon.id }}" data-name="{{ pokemon.name }}">
                 <article data-type="{{ pokemon.type }}" class="card type-{{ pokemon.types[0] }}">
                     <h2>{{ pokemon.name | capitalize}}</h2>
-                        <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" width="100">
+                        <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" width="100" style="view-transition-class:vt-img; view-transition-name:{{ pokemon.name }};">
                     {% comment %} <p>#{{ pokemon.id }}</p> {% endcomment %}
                 </article>
             </a>

@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <style>
+            @media (prefers-reduced-motion: no-preference) {
+                @view-transition {
+                    navigation: auto;
+                }
+
+                {% comment %} ::view-transition-group(*) {
+                    animation-duration:5s;
+                } {% endcomment %}
+
+                :root {
+                    view-transition-name:none;
+                }
+
+                ::view-transition-group(.vt-img) {
+                    animation-duration: .4s;
+                }
+
+            }
+        </style>
+        
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/styles/style.css">
