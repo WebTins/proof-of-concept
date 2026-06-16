@@ -263,4 +263,271 @@ body {
             }
         }
     }
+
+    /* MARK: DETAILPAGE */
+    .main-detail {
+        display: flex;
+        flex-direction: column;
+        font-family: Inter;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url('/assets/pokeball.svg');
+        background-repeat: no-repeat;
+        background-position: right;
+        background-size: 700px;
+
+        .back-link {
+            align-self: flex-start;
+            margin: 1rem;
+            text-decoration: none;
+            color: var(--dark-accent);
+            font-weight: 700;
+        }
+
+        .pokemon-detail {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            padding: 0 1rem 1rem;
+
+            @media (min-width: 888px) {
+                flex-direction: row;
+                align-items: stretch;
+                max-width: 900px;
+                gap: 4rem;
+            }
+        }
+
+        /* MARK: Pokemon info */
+        .pokemon-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            gap: 0.5rem;
+
+            .pokemon-id {
+                background-color: var(--head-accent);
+                color: var(--light-accent);
+                border-radius: 25px;
+                padding: 0.25rem 1rem;
+                font-weight: 700;
+                font-size: 0.9em;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .pokemon-image {
+                width: 200px;
+                height: auto;
+            }
+
+            @media (min-width: 888px) {
+                width: 250px;
+                flex-shrink: 0;
+                justify-content: center;
+                padding: 2rem 1rem;
+            }
+        }
+
+        .pokemon-tabs {
+            background-color: var(--light-accent);
+            border: solid 2px var(--dark-accent);
+            border-radius: 20px;
+            width: 100%;
+            margin-top: 1rem;
+            padding: 1.5rem;
+            overflow: hidden;
+
+            @media (min-width: 888px) {
+                flex: 1;
+                margin-top: 0;
+                margin-left: -20px;
+            }
+
+            nav {
+                display: flex;
+                justify-content: center;
+                gap: 1.5rem;
+                padding-bottom: 1rem;
+                border-bottom: solid 2px #e0e0e0;
+                font-weight: 700;
+
+                a {
+                    text-decoration: none;
+                    color: var(--dark-accent);
+                    padding: 0.25rem;
+
+                    &:focus-visible {
+                        outline: solid 3px var(--purple);
+                        border-radius: 5px;
+                    }
+                }
+            }
+
+            .tab-carousel {
+                overflow: auto;
+                scroll-behavior: smooth;
+                scrollbar-width: none;
+                display: flex;
+                scroll-snap-type: x mandatory;
+                padding-top: 1.5rem;
+                gap: 3rem;
+
+                @media (prefers-reduced-motion: reduce) {
+                    scroll-behavior: auto;
+                }
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+                section {
+                    flex: 1 0 100%;
+                    scroll-snap-align: center;
+                }
+            }
+
+
+        }
+
+        .active-tab {
+            color: var(--head-accent);
+        }
+
+        /* MARK: ABOUT TABEL */
+        #about {
+            table {
+                width: 100%;
+                border-collapse: collapse;
+
+                tr {
+                    border-bottom: solid 1px #f0f0f0;
+                }
+
+                th,
+                td {
+                    padding: 0.6rem 0;
+                    font-size: 0.95em;
+                }
+
+                th {
+                    text-align: left;
+                    font-weight: 700;
+                }
+
+                td {
+                    text-align: right;
+                }
+            }
+
+            .type-badge {
+                display: inline-block;
+                padding: 0.15rem 0.75rem;
+                border-radius: 25px;
+                font-weight: 700;
+                font-size: 0.85em;
+                color: var(--dark-accent);
+            }
+        }
+
+        /* MARK: STATS */
+        #stats {
+            .stat-row {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                align-items: center;
+                gap: 0.25rem 0.5rem;
+                margin-bottom: 1rem;
+
+                .stat-name {
+                    font-weight: 700;
+                    font-size: 0.95em;
+                }
+
+                .stat-value {
+                    font-size: 0.95em;
+                }
+
+                meter {
+                    grid-column: 1 / -1;
+                    width: 100%;
+                    height: 8px;
+                    appearance: none;
+
+                    &::-webkit-meter-bar {
+                        background: #e8e8e8;
+                        border-radius: 4px;
+                        border: none;
+                        height: 8px;
+                    }
+
+                    &::-webkit-meter-optimum-value {
+                        background: var(--head-accent);
+                        border-radius: 4px;
+                    }
+
+                    &::-moz-meter-bar {
+                        background: var(--head-accent);
+                        border-radius: 4px;
+                        height: 8px;
+                    }
+                }
+            }
+        }
+
+        /* MARK: EVOLUTIONS */
+        #evolutions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+
+            .evolution-card {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                background-color: var(--background);
+                border-radius: 15px;
+                padding: 0.5rem;
+                text-decoration: none;
+                color: var(--dark-accent);
+                transition: .3s ease-in-out;
+
+                &:hover {
+                    background-color: #e0e0ff;
+                }
+
+                img {
+                    width: 60px;
+                    height: 60px;
+                    object-fit: contain;
+                }
+
+                .evolution-info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.25rem;
+
+                    .evo-id {
+                        display: inline-block;
+                        width: fit-content;
+                        background-color: var(--head-accent);
+                        color: var(--light-accent);
+                        border-radius: 25px;
+                        padding: 0.1rem 0.6rem;
+                        font-size: 1em;
+                        font-weight: 700;
+                    }
+
+                    p {
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
 }
