@@ -12,12 +12,12 @@
             <h1 style="view-transition-name: title-{{ pokemon.name }};">{{ pokemon.name | capitalize }}</h1>
             <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" style="view-transition-name:{{ pokemon.name }};" width="200" class="pokemon-image">
             {% if isLiked %}
-                <form action="/pokemon/{{ pokemon.id }}/unlike" method="POST">
+                <form action="/pokemon/{{ pokemon.id }}/unlike" method="POST" class="unfavourite-form">
                     <input type="hidden" name="user_id" value="6">
                     <button class="submit unlike" type="submit">💔 Unfavourite</button>
                 </form>
             {% else %}
-                <form action="/pokemon/{{ pokemon.id }}/like" method="POST">
+                <form action="/pokemon/{{ pokemon.id }}/like" method="POST" class="favourite-form">
                     <input type="hidden" name="user_id" value="6">
                     <button class="submit like" type="submit">❤ Favourite</button>
                 </form>
