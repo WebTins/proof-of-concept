@@ -16,6 +16,7 @@ app.use(express.urlencoded({extended: true}))
 
 // BASE API link
 const pokeApi = 'https://pokeapi.co/api/v2/'
+const baseURL = 'https://fdnd-agency.directus.app/items/pokemon_catches'
 
 // MARK: Home page
 app.get ('/', async function (request, response) {
@@ -51,7 +52,20 @@ app.get ('/', async function (request, response) {
 // MARK: Pokemon detail pagina
 app.get('/pokemon/:id', async function (request, response) {
     const detailResponse = await fetch(`${pokeApi}pokemon/${request.params.id}`)
+
+    if (!detailResponse.ok) {
+        return response.status(404).render('error')
+    }
+
     const detailJSON = await detailResponse.json()
+
+    const likeParams = new URLSearchParams();
+    likeParams.set('filter[pokemon_id][_eq]', request.params.id);
+    likeParams.set('filter[user_id][_eq]', '6');
+
+    const catchResponse = await fetch(baseURL + '?' + likeParams.toString());
+    const catchJSON = await catchResponse.json();
+    const isLiked = catchJSON.data.length > 0;
 
      // Stap 1: haal de species op, hierin staat de link naar de evolution chain
     const speciesResponse = await fetch(`${pokeApi}pokemon-species/${request.params.id}`)
@@ -98,10 +112,42 @@ app.get('/pokemon/:id', async function (request, response) {
             })),
             abilities: detailJSON.abilities.map(a => a.ability.name),
             evolutions: evolutionDetails,
-        }
+        },
+            isLiked: isLiked
     })
 })
 
+app.post('/pokemon/:id/like', async function (request, response) {
+    await fetch(baseURL, {
+        method: 'POST',
+        body: JSON.stringify({
+            pokemon_id: request.params.id,
+            user_id: request.body.user_id
+        }),
+        headers: {
+            'Content-Type': 'application/json;charset=UTF-8'
+        }
+    });
+
+    response.redirect(303, `/pokemon/${request.params.id}`);
+})
+
+app.post('/pokemon/:id/unlike', async function (request, response) {
+    const params = new URLSearchParams();
+    params.set('filter[pokemon_id][_eq]', request.params.id);
+    params.set('filter[user_id][_eq]', request.body.user_id);
+
+    const catchResponse = await fetch(baseURL + '?' + params.toString());
+    const catchJSON = await catchResponse.json();
+    const catchId = catchJSON.data[0]?.id;
+
+    if (catchId) {
+        await fetch(baseURL + '/' + catchId, { method: 'DELETE' });
+    }
+
+    response.redirect(303, `/pokemon/${request.params.id}`);
+})
+ 
 app.use((request, response) => {
     response.status(404).render('error')
 })
