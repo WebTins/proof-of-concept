@@ -33,14 +33,23 @@
 
 <div class="wrapper">
     <div class="pokemon-card">
-        {% for pokemon in pokemon %}
-            <a href="/pokemon/{{ pokemon.id }}" data-name="{{ pokemon.name }}">
-                <article data-type="{{ pokemon.type }}" class="card type-{{ pokemon.types[0] }}">
-                    <h2 style="view-transition-name: title-{{ pokemon.name }};">{{ pokemon.name | capitalize}}</h2>
+        {% if pokemon.size > 0 %}
+            {% for pokemon in pokemon %}
+                <a href="/pokemon/{{ pokemon.id }}" data-name="{{ pokemon.name }}">
+                    <article data-type="{{ pokemon.type }}" class="card type-{{ pokemon.types[0] }}">
+                        <h2 style="view-transition-name: title-{{ pokemon.name }};">{{ pokemon.name | capitalize}}</h2>
                         <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" width="100" style="view-transition-name:{{ pokemon.name }};">
-                </article>
-            </a>
-        {% endfor %}
+                    </article>
+                </a>
+            {% endfor %}
+        {% else %}
+            <div class="empty-state">
+                <img src="/assets/errorImage.png" alt="pikachu" width="150">
+                <h3>No favourite Pokemon has been found yet..</h2>
+                <p>Favourite a Pokemon to have it on display</p>
+                <a href="/" class="back-link">← Back to all Pokemon</a>
+            </div>
+        {% endif %}
     </div>
 </div>
 </main>
