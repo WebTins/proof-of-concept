@@ -49,6 +49,36 @@ app.get ('/', async function (request, response) {
     })
 })
 
+// MARK: Favorieten pagina
+app.get('/favorites', async function (request, response) {
+    // Stap 1: haal alle catches van user 6 op
+    const likeParams = new URLSearchParams();
+    likeParams.set('filter[user_id][_eq]', '6');
+
+    const catchResponse = await fetch(baseURL + '?' + likeParams.toString());
+    const catchJSON = await catchResponse.json();
+
+    // Stap 2: haal voor elke gelikete pokemon de details op
+    const pokemonDetails = await Promise.all(
+        catchJSON.data.map(async (catchItem) => {
+            const detailResponse = await fetch(`${pokeApi}pokemon/${catchItem.pokemon_id}`)
+            const detailJSON = await detailResponse.json()
+
+            return {
+                name: detailJSON.name,
+                id: detailJSON.id,
+                image: detailJSON.sprites.other['official-artwork'].front_default,
+                types: detailJSON.types.map(type => type.type.name),
+            }
+        })
+    )
+
+    response.render('index', {
+        page: "favorites",
+        pokemon: pokemonDetails
+    })
+})
+
 // MARK: Pokemon detail pagina
 app.get('/pokemon/:id', async function (request, response) {
     const detailResponse = await fetch(`${pokeApi}pokemon/${request.params.id}`)
