@@ -21,29 +21,29 @@ const baseURL = 'https://fdnd-agency.directus.app/items/pokemon_catches'
 // MARK: Home page
 app.get ('/', async function (request, response) {
 
-  const pokeResponse = await fetch (`${pokeApi}/pokemon?limit=20`)
-  const pokeResponseJSON = await pokeResponse.json()
+    const pokeResponse = await fetch (`${pokeApi}/pokemon?limit=20`)
+    const pokeResponseJSON = await pokeResponse.json()
 
-  const pokemonDetails = await Promise.all(
-      pokeResponseJSON.results.map(async (pokemon) => {
-        const detailResponse = await fetch(pokemon.url)
-        const detailJSON = await detailResponse.json()
+    const pokemonDetails = await Promise.all(
+        pokeResponseJSON.results.map(async (pokemon) => {
+            const detailResponse = await fetch(pokemon.url)
+            const detailJSON = await detailResponse.json()
 
         console.log(detailJSON);
-      
+        
         return {
             name: detailJSON.name,
             id: detailJSON.id,
             image: detailJSON.sprites.other['official-artwork'].front_default,
             // map uitzoeken wat het is en wat het kan
             types: detailJSON.types.map(type => type.type.name),
-      }
+        }
     })
-  )
+)
 
 // maak index.liquid om naar html en geef hier onderstaande data aan mee
     response.render('index', {
-      page: "home",
+        page: "home",
 // de data die in de template mag, in me liquid kan ik dan {{} pokemon }} gebruiken
     pokemon: pokemonDetails
     })
@@ -147,6 +147,7 @@ app.get('/pokemon/:id', async function (request, response) {
     })
 })
 
+// MARK: POST Favoriet
 app.post('/pokemon/:id/like', async function (request, response) {
     await fetch(baseURL, {
         method: 'POST',
@@ -162,6 +163,7 @@ app.post('/pokemon/:id/like', async function (request, response) {
     response.redirect(303, `/pokemon/${request.params.id}`);
 })
 
+// DELETE Favoriet
 app.post('/pokemon/:id/unlike', async function (request, response) {
     const params = new URLSearchParams();
     params.set('filter[pokemon_id][_eq]', request.params.id);
@@ -177,7 +179,7 @@ app.post('/pokemon/:id/unlike', async function (request, response) {
 
     response.redirect(303, `/pokemon/${request.params.id}`);
 })
- 
+
 app.use((request, response) => {
     response.status(404).render('error')
 })
@@ -186,5 +188,5 @@ app.use((request, response) => {
 app.set('port', process.env.PORT || 8000)
 
 app.listen(app.get('port'), function () {
-  console.log(`Application started on http://localhost:${app.get('port')}`)
+    console.log(`Application started on http://localhost:${app.get('port')}`)
 })
