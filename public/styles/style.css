@@ -425,6 +425,11 @@ body {
                 border-radius: 25px;
                 padding: 0.5rem 1rem;
                 border: none;
+                transition: .3s ease-in-out;
+
+                &:hover {
+                    background-color: var(--dark-accent);
+                }
             }
         }
 
