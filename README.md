@@ -10,11 +10,11 @@ In dit project werk ik in mijn eentje
 - [Linkedin](https://www.linkedin.com/in/tin-nguyen-33a211202/)
 
 ## Inhoudsopgave
-1. [Beschrijving](https://github.com/WebTins/proof-of-concept/edit/main/README.md#beschrijving)
-2. [Design](https://github.com/WebTins/proof-of-concept/edit/main/README.md#design)
-3. [Kenmerken](https://github.com/WebTins/proof-of-concept/edit/main/README.md#kenmerken)
-4. [Code conventies](https://github.com/WebTins/proof-of-concept/edit/main/README.md#code-conventies)
-5. [Installatie](https://github.com/WebTins/proof-of-concept/edit/main/README.md#installatie)
+1. [Beschrijving](https://github.com/WebTins/proof-of-concept#beschrijving)
+2. [Design](https://github.com/WebTins/proof-of-concept#design)
+3. [Kenmerken](https://github.com/WebTins/proof-of-concept#kenmerken)
+4. [Code conventies](https://github.com/WebTins/proof-of-concept#code-conventies)
+5. [Installatie](https://github.com/WebTins/proof-of-concept#installatie)
 
 ## Beschrijving
 In deze website gebruik ik een openbare API op het internet speciaal gemaakt voor de PokeDex. De data wordt uit de [PokeAPI](https://pokeapi.co/) gehaald en op de website getoont.
