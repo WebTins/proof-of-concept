@@ -416,6 +416,7 @@ body {
                 padding: 2rem 1rem;
             }
 
+            /* MARK: FAVOURITE */
             .submit {
                 cursor: pointer;
                 font-weight: 600;
@@ -429,6 +430,11 @@ body {
 
                 &:hover {
                     background-color: var(--dark-accent);
+                }
+
+                &:focus {
+                    outline: solid 3.5px #ffcb00;
+                    outline-offset: .25rem;
                 }
             }
         }
