@@ -11,6 +11,17 @@
             <p class="pokemon-id">#{{ pokemon.id | prepend: "000" | slice: -4, 4 }}</p>
             <h1 style="view-transition-name: title-{{ pokemon.name }};">{{ pokemon.name | capitalize }}</h1>
             <img src="{{ pokemon.image }}" alt="{{ pokemon.name }}" style="view-transition-name:{{ pokemon.name }};" width="200" class="pokemon-image">
+            {% if isLiked %}
+                <form action="/pokemon/{{ pokemon.id }}/unlike" method="POST">
+                    <input type="hidden" name="user_id" value="6">
+                    <button class="submit unlike" type="submit">💔 Unfavourite</button>
+                </form>
+            {% else %}
+                <form action="/pokemon/{{ pokemon.id }}/like" method="POST">
+                    <input type="hidden" name="user_id" value="6">
+                    <button class="submit like" type="submit">❤ Favourite</button>
+                </form>
+            {% endif %}
         </section>
 
         <!--MARK: TABS-->
