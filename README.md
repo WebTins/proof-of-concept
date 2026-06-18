@@ -91,6 +91,20 @@ https://github.com/user-attachments/assets/b448bc36-0f57-41d4-bf82-b5fc5266483b
 
 In dit project is er gebruik gemaakt van HTML, CSS, JS, NodeJS, Express, JSON en Liquid.
 
+### View transitions
+
+Ik heb view transitions toegevoegd aan content die op een andere pagina ook staan, daarbij heb ik dus het Pokemon logo, Pokemon naam en Pokemon afbeelding een `view-transition-name` gegeven zodat er een mooie overgang is bij het landen bij een andere pagina.
+
+**Homepage naar Detailpage**
+
+https://github.com/user-attachments/assets/04296b7f-bfca-4eba-8f63-ffb97ba29caa
+
+**Detailpage naar Evolutions**
+
+https://github.com/user-attachments/assets/ee552648-da64-4f76-b41e-deacbf11370b
+
+---
+
 ### Pokemon favorieten toevoegen [POST]
 
 Wanneer je een pokemon erg leuk vindt en fijn vindt om het sneller te kunnen vinden, kan je de pokemon in je favorieten te zetten door op de detail pagina op "Favourite" te klikken. De pokemon wordt dan opgeslagen naar je favorieten die je terug kan vinden op de "Favourites" page.
@@ -128,6 +142,8 @@ Feedback toevoegen van pokemon:
 - De knop geeft aan "❤Favourite"
 
 https://github.com/user-attachments/assets/05adbf74-05c3-4da6-936c-4a078ee7e191
+
+---
 
 ### Searchbar
 
