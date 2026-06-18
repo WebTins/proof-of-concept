@@ -151,7 +151,7 @@ https://github.com/user-attachments/assets/96888de7-6bf3-4900-b52c-d43da361d134
 
 ### Empty state
 
-Op de favorieten pagina kan je je favorieten Pokemon zien en ik heb een empty state toegevoegd wanneer er geen Pokemon zijn, zodat de gebruiker kan zien dat er nog geen favorieten Pokemon zijn. Ik heb hiervoor in liquid een `{%if}%` `{% else %}` statement gebruikt.
+Op de favorieten pagina kan je je favorieten Pokemon zien en ik heb een empty state toegevoegd wanneer er geen Pokemon zijn, zodat de gebruiker kan zien dat er nog geen favorieten Pokemon zijn. Ik heb hiervoor in liquid een `{% if %}` `{% else %}` statement gebruikt.
 
 [Figma design](https://www.figma.com/design/4JxRF7qJcIJUYTXvwsccs3/Hypersolid-PokeDex?node-id=240-328&m=dev)
 
