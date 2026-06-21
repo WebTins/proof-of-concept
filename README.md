@@ -27,6 +27,8 @@ In deze opdracht moet ik aan een aantal dingen voldoen volgens de Acceptatie Cri
 
 [WCAG Audit](https://github.com/WebTins/proof-of-concept/issues/12)
 
+[Performance Audit](https://github.com/WebTins/proof-of-concept/issues/13)
+
 ## Design
 
 Ik heb een beetje het design overgenomen van wat Hypersolid mij had aangeboden, alleen heb ik wel een paar dingen eraan veranderd omdat ik het vond dat er een paar dingen ontbraken zoals een terugknop, of active states. Ook heb ik de detailpagina layout veranderd. In het Figma bestand kan je al mijn ontwerpen zien die ik heb gemaakt voor alle pagina's en kenmerken van de website.
