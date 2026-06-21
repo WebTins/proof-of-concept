@@ -25,7 +25,9 @@ In deze opdracht moet ik aan een aantal dingen voldoen volgens de Acceptatie Cri
 
 [Website](https://proof-of-concept-08ht.onrender.com/)
 
-[WCAG Audit]()
+[WCAG Audit](https://github.com/WebTins/proof-of-concept/issues/12)
+
+[Performance Audit](https://github.com/WebTins/proof-of-concept/issues/13)
 
 ## Design
 
