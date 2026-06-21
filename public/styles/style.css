@@ -634,6 +634,7 @@ body {
         }
     }
 
+    /* MARK: ERROR PAGE */
     .error {
         display: flex;
         flex-direction: column;
